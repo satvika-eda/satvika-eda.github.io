@@ -403,7 +403,7 @@ const Portfolio = () => {
               <a href={portfolioData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin size={24} />
               </a>
-              <a href="https://github.com/satvikaeda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/satvika-eda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Github size={24} />
               </a>
             </div>
@@ -694,7 +694,7 @@ const Portfolio = () => {
                   <span className="text-gray-300 group-hover:text-white">LinkedIn</span>
                 </a>
                 <a 
-                  href="https://github.com/satvikaeda"
+                  href="https://github.com/satvika-eda"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center py-3 px-4 border border-gray-700 rounded-md bg-gray-800 hover:bg-blue-600 transition-colors group"
@@ -736,7 +736,7 @@ const Portfolio = () => {
               <p className="text-gray-400">© {new Date().getFullYear()} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">{portfolioData.name}</span>. All rights reserved.</p>
             </div>
             <div className="flex space-x-6">
-              <a href="https://github.com/satvikaeda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/satvika-eda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Github size={20} />
               </a>
               <a href={portfolioData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
