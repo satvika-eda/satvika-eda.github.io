@@ -4,14 +4,14 @@ import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, D
 // Updated with Satvika's latest information from resume
 const portfolioData = {
   name: "Satvika Eda",
-  title: "AI/ML Engineer & Software Developer",
-  about: "I'm a Master's student in Artificial Intelligence at Northeastern University with professional experience as an ML Engineer Intern at Dassault Systèmes and as a Software Engineer at JP Morgan Chase & Co. My research interests include Natural Language Processing, Machine Learning, and Computer Vision, with a focus on developing practical AI applications that solve real-world problems.",
+  title: "AI/ML Engineer",
+  about: "I'm a Master's Student in Artificial Intelligence at Northeastern University with professional experience as an ML Engineer Intern at Dassault Systèmes and as a Software Engineer at JP Morgan Chase & Co. My interests include Natural Language Processing, Machine Learning, and Computer Vision, with a focus on developing practical AI applications that solve real-world problems.",
   education: [
     {
       degree: "M.S. in Artificial Intelligence",
       institution: "Northeastern University",
       year: "2023 - Present",
-      courses: "Foundations of AI, Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, AIHCI"
+      courses: "Foundations of AI, Programming Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, Artificial Intelligence for Human Computer Interaction"
     },
     {
       degree: "B.Tech in Computer Science",
@@ -25,11 +25,11 @@ const portfolioData = {
     "AWS", "React", "SQL", "Kubernetes", "Docker", "ChromaDB"
   ],
   technicalProficiency: [
-    { skill: "Machine Learning & AI", level: 95 },
-    { skill: "Python Development", level: 90 },
-    { skill: "Natural Language Processing", level: 85 },
-    { skill: "Cloud Computing (AWS)", level: 80 },
-    { skill: "Deep Learning", level: 85 }
+    { skill: "Machine Learning & AI" },
+    { skill: "Deep Learning" },
+    { skill: "Natural Language Processing" },
+    { skill: "Python Development" },
+    { skill: "Cloud Computing (AWS)" },
   ],
   experience: [
     {
@@ -444,7 +444,7 @@ const Portfolio = () => {
                 <h3 className="text-xl font-semibold text-white mb-4">Technical Proficiency</h3>
                 <div className="space-y-4">
                   {portfolioData.technicalProficiency.map((item, index) => (
-                    <SkillBar key={index} skill={item.skill} level={item.level} />
+                    <SkillBar key={index} skill={item.skill} />
                   ))}
                 </div>
               </div>
