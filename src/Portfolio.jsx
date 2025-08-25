@@ -245,8 +245,9 @@ const Portfolio = () => {
   };
 
   // Animated skill bar component
-  const SkillBar = ({ skill, level }) => {
+  const SkillBar = ({ skill }) => {
     const [width, setWidth] = useState(0);
+    const level = 100;
     
     useEffect(() => {
       // Animate the skill bar filling up
@@ -255,13 +256,13 @@ const Portfolio = () => {
       }, 500);
       
       return () => clearTimeout(timer);
-    }, [level]);
+    });
     
     return (
       <div className="mb-4">
         <div className="flex justify-between items-center mb-1">
           <span className="text-gray-300">{skill}</span>
-          <span className="text-sm text-indigo-300">{level}%</span>
+          <span className="text-sm text-indigo-300">{level}</span>
         </div>
         <div className="w-full bg-gray-700 rounded-full h-2.5">
           <div 
