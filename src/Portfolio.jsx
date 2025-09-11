@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, BookOpen, Briefcase } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, Layers, Cloud, Languages} from 'lucide-react';
 
 // Updated with Satvika's latest information from resume
 const portfolioData = {
   name: "Satvika Eda",
   title: "AI/ML Engineer",
-  about: "I'm a Master's Student in Artificial Intelligence at Northeastern University with professional experience as an ML Engineer Intern at Dassault Systèmes and as a Software Engineer at JP Morgan Chase & Co. My interests include Natural Language Processing, Machine Learning, and Computer Vision, with a focus on developing practical AI applications that solve real-world problems.",
+  about: (
+    <>
+      I'm a Master's student in Artificial Intelligence at Northeastern University with passion for creating AI solutions that make a meaningful difference. My professional journey spans software engineering at JP Morgan Chase & Co and my current role as an ML Engineer Intern at Dassault Systèmes.
+      <br /><br />
+      I specialize in Natural Language Processing, Machine Learning, and Computer Vision, areas where I'm continually inspired to create innovative tools that address real-world challenges. Beyond my technical pursuits, I enjoy reading books, cooking, and watching movies. 
+    </>
+  ),
   education: [
     {
       degree: "M.S. in Artificial Intelligence",
       institution: "Northeastern University",
       year: "2023 - Present",
-      courses: "Foundations of AI, Programming Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, Artificial Intelligence for Human Computer Interaction"
+      courses: "Foundations of AI, Programming Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, Artificial Intelligence for Human Computer Interaction, Data Mining Techniques"
     },
     {
       degree: "B.Tech in Computer Science",
@@ -28,6 +34,7 @@ const portfolioData = {
     { skill: "Machine Learning & AI" },
     { skill: "Deep Learning" },
     { skill: "Natural Language Processing" },
+    { skill: "Computer Vision" },
     { skill: "Python Development" },
     { skill: "Cloud Computing (AWS)" },
   ],
@@ -121,6 +128,33 @@ const portfolioData = {
     linkedin: "https://linkedin.com/in/satvika-eda",
     location: "Boston, MA"
   }
+};
+
+// Modified SkillIcons component to work with your object structure
+const SkillIcons = ({ technicalProficiency }) => {
+  const skillIcons = {
+    "Machine Learning & AI": <Brain size={24} className="text-purple-400" />,
+    "Deep Learning": <Layers size={24} className="text-indigo-400" />,
+    "Natural Language Processing": <Languages size={24} className="text-pink-400" />,
+    "Computer Vision": <Cpu size={24} className="text-green-400" />,
+    "Python Development": <Code size={24} className="text-blue-400" />,
+    "Cloud Computing (AWS)": <Cloud size={24} className="text-orange-400" />,
+  };
+
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      {technicalProficiency.map((item, index) => (
+        <div key={index} className="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-200">
+          <div className="w-16 h-16 bg-gray-800 bg-opacity-50 rounded-full flex items-center justify-center mb-3 border border-gray-700 group-hover:border-blue-500 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+            {skillIcons[item.skill] || <Code size={24} className="text-gray-400" />}
+          </div>
+          <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+            {item.skill}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 const Portfolio = () => {
@@ -244,36 +278,6 @@ const Portfolio = () => {
     );
   };
 
-  // Animated skill bar component
-  const SkillBar = ({ skill }) => {
-    const [width, setWidth] = useState(0);
-    const level = 100;
-    
-    useEffect(() => {
-      // Animate the skill bar filling up
-      const timer = setTimeout(() => {
-        setWidth(level);
-      }, 500);
-      
-      return () => clearTimeout(timer);
-    });
-    
-    return (
-      <div className="mb-4">
-        <div className="flex justify-between items-center mb-1">
-          <span className="text-gray-300">{skill}</span>
-          <span className="text-sm text-indigo-300">{level}</span>
-        </div>
-        <div className="w-full bg-gray-700 rounded-full h-2.5">
-          <div 
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2.5 rounded-full transition-all duration-1000 ease-out"
-            style={{ width: `${width}%` }}
-          ></div>
-        </div>
-      </div>
-    );
-  };
-  
   // Experience item component
   const ExperienceItem = ({ title, company, location, period, achievements }) => {
     return (
@@ -389,12 +393,12 @@ const Portfolio = () => {
                 {portfolioData.name}
               </span>
             </h1>
-            <p className="mt-2 text-xl text-gray-300">
+            {/* <p className="mt-2 text-xl text-gray-300">
               {portfolioData.title}
-            </p>
+            </p> */}
             <div className="mt-8">
               <span className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg transform transition hover:scale-105">
-                AI/ML Specialist | Software Engineer
+                {portfolioData.title}
               </span>
             </div>
             <div className="mt-8 flex justify-center space-x-6">
@@ -429,7 +433,7 @@ const Portfolio = () => {
         </div>
       </header>
 
-      {/* About Section */}
+
       <section id="about" className="py-16 bg-gray-800 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 inline-block">
@@ -437,17 +441,29 @@ const Portfolio = () => {
           </h2>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="col-span-2">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                {portfolioData.about}
-              </p>
-              
-              <div className="mt-10">
-                <h3 className="text-xl font-semibold text-white mb-4">Technical Proficiency</h3>
-                <div className="space-y-4">
-                  {portfolioData.technicalProficiency.map((item, index) => (
-                    <SkillBar key={index} skill={item.skill} />
-                  ))}
+
+              <div className="flex flex-col md:flex-row gap-6 items-center">
+
+                <div className="flex-1">
+                  <div className="text-lg text-gray-300 leading-relaxed space-y-4">
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                    {portfolioData.about}
+                  </p>
+                  </div>
                 </div>
+
+                <div className="flex-shrink-0">
+                  <img 
+                    src="/IMG_8207.jpg" 
+                    alt="Satvika Eda" 
+                    className="w-32 h-32 md:w-50 md:h-40 rounded-lg object-cover shadow-lg border-2 border-gray-700"
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-12">
+                <h3 className="text-xl font-semibold text-white mb-6">Technical Proficiency</h3>
+                <SkillIcons technicalProficiency={portfolioData.technicalProficiency} />
               </div>
             </div>
             
@@ -483,19 +499,6 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Decorative circuit pattern */}
-        <div className="absolute bottom-0 right-0 opacity-10">
-          <svg width="404" height="384" fill="none" viewBox="0 0 404 384">
-            <path d="M0 384h404V0H0v384z" fill="url(#circuit-pattern)" />
-            <defs>
-              <pattern id="circuit-pattern" width="64" height="64" patternUnits="userSpaceOnUse">
-                <path d="M32 0v32m0 0h32M32 32H0m32 0v32" stroke="white" strokeWidth="2" />
-                <circle cx="32" cy="32" r="4" fill="white" />
-              </pattern>
-            </defs>
-          </svg>
         </div>
       </section>
       
@@ -628,51 +631,8 @@ const Portfolio = () => {
           <p className="mt-4 text-lg text-gray-300">
             Feel free to reach out for collaborations, research opportunities, or just to say hello!
           </p>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="relative bg-gray-900 bg-opacity-50 p-8 rounded-lg border border-gray-700 backdrop-filter backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-6">Get In Touch</h3>
-              <div className="space-y-6">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center mr-4">
-                    <Mail size={20} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Email</p>
-                    <p className="text-white">{portfolioData.contact.email}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center mr-4">
-                    <Linkedin size={20} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">LinkedIn</p>
-                    <a href={portfolioData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
-                      {portfolioData.contact.linkedin.replace('https://', '')}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center mr-4">
-                    <Briefcase size={20} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Location</p>
-                    <p className="text-white">{portfolioData.contact.location}</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Animated decorative element */}
-              <div className="absolute -top-3 -left-3 w-16 h-16">
-                <div className="absolute inset-0 rounded-tr-2xl border-t-2 border-r-2 border-blue-500 animate-pulse"></div>
-              </div>
-              <div className="absolute -bottom-3 -right-3 w-16 h-16">
-                <div className="absolute inset-0 rounded-bl-2xl border-b-2 border-l-2 border-indigo-500 animate-pulse delay-300"></div>
-              </div>
-            </div>
-            
-            <div className="bg-gray-900 bg-opacity-50 p-8 rounded-lg border border-gray-700 backdrop-filter backdrop-blur-sm">
+          <div className="max-w-3xl mx-auto mt-10">
+            <div className="bg-gray-900 bg-opacity-50 p-12 rounded-lg border border-gray-700 backdrop-filter backdrop-blur-sm">
               <h3 className="text-xl font-semibold text-white mb-6">Connect With Me</h3>
               <p className="text-gray-300 mb-6">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Let's connect and explore how we can work together!
@@ -704,12 +664,18 @@ const Portfolio = () => {
                   <span className="text-gray-300 group-hover:text-white">GitHub</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://github.com/satvika-eda/satvika-eda.github.io/tree/main/public/SatvikaEdaResume.pdf"
                   className="flex items-center justify-center py-3 px-4 border border-gray-700 rounded-md bg-gray-800 hover:bg-blue-600 transition-colors group"
                 >
                   <FileText size={20} className="mr-2 text-gray-400 group-hover:text-white" />
                   <span className="text-gray-300 group-hover:text-white">Resume</span>
                 </a>
+              </div>
+              <div className="absolute -top-3 -left-3 w-16 h-16">
+                <div className="absolute inset-0 rounded-tr-2xl border-t-2 border-r-2 border-blue-500 animate-pulse"></div>
+              </div>
+              <div className="absolute -bottom-3 -right-3 w-16 h-16">
+                <div className="absolute inset-0 rounded-bl-2xl border-b-2 border-l-2 border-indigo-500 animate-pulse delay-300"></div>
               </div>
             </div>
           </div>
@@ -728,25 +694,12 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-      
+    
       {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 py-8 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
+          <div className="mb-4 md:mb-0">
               <p className="text-gray-400">© {new Date().getFullYear()} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">{portfolioData.name}</span>. All rights reserved.</p>
-            </div>
-            <div className="flex space-x-6">
-              <a href="https://github.com/satvika-eda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Github size={20} />
-              </a>
-              <a href={portfolioData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href={`mailto:${portfolioData.contact.email}`} className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Mail size={20} />
-              </a>
-            </div>
           </div>
         </div>
       </footer>
