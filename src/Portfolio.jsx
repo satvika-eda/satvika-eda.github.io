@@ -569,12 +569,12 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="mt-4 flex justify-end">
+                  {/* <div className="mt-4 flex justify-end">
                     <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
                       <span className="mr-2 group-hover:mr-3 transition-all">View Project</span>
                       <ExternalLink size={16} />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
@@ -694,11 +694,13 @@ const Portfolio = () => {
         </div>
       </section>
     
-      {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 py-8 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center justify-center flex"> 
           <div className="mb-4 md:mb-0">
-              <p className="text-gray-400">© {new Date().getFullYear()} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">{portfolioData.name}</span>. All rights reserved.</p>
+              <p className="text-gray-400">© {new Date().getFullYear()} 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500"> {portfolioData.name}</span>
+                 . All rights reserved.
+              </p>
           </div>
         </div>
       </footer>
