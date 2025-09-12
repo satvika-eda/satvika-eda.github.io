@@ -608,7 +608,6 @@ const Portfolio = () => {
           </div>
         </div>
         
-        {/* Binary code background */}
         <div className="absolute bottom-0 right-0 opacity-5 overflow-hidden">
           <div className="select-none text-xs leading-none text-gray-500" style={{ fontFamily: 'monospace' }}>
             {Array(10).fill().map((_, i) => (
@@ -664,7 +663,7 @@ const Portfolio = () => {
                   <span className="text-gray-300 group-hover:text-white">GitHub</span>
                 </a>
                 <a 
-                  href="https://github.com/satvika-eda/satvika-eda.github.io/tree/main/public/SatvikaEdaResume.pdf"
+                  href="/SatvikaEdaResume.pdf"
                   className="flex items-center justify-center py-3 px-4 border border-gray-700 rounded-md bg-gray-800 hover:bg-blue-600 transition-colors group"
                 >
                   <FileText size={20} className="mr-2 text-gray-400 group-hover:text-white" />
