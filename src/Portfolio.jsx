@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, Layers, Cloud, Languages} from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, BookOpen, Briefcase, Cloud, GitBranch, Layers, Zap, Terminal, FileCode, Globe, Server } from 'lucide-react';
 
 // Updated with Satvika's latest information from resume
 const portfolioData = {
   name: "Satvika Eda",
-  title: "AI/ML Engineer",
+  title: "AI/ML Engineer & Software Developer",
   about: (
     <>
       I'm a Master's student in Artificial Intelligence at Northeastern University with passion for creating AI solutions that make a meaningful difference. My professional journey spans software engineering at JP Morgan Chase & Co and my current role as an ML Engineer Intern at Dassault Systèmes.
@@ -17,7 +17,7 @@ const portfolioData = {
       degree: "M.S. in Artificial Intelligence",
       institution: "Northeastern University",
       year: "2023 - Present",
-      courses: "Foundations of AI, Programming Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, Artificial Intelligence for Human Computer Interaction, Data Mining Techniques"
+      courses: "Foundations of AI, Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, AIHCI"
     },
     {
       degree: "B.Tech in Computer Science",
@@ -34,7 +34,6 @@ const portfolioData = {
     { skill: "Machine Learning & AI" },
     { skill: "Deep Learning" },
     { skill: "Natural Language Processing" },
-    { skill: "Computer Vision" },
     { skill: "Python Development" },
     { skill: "Cloud Computing (AWS)" },
   ],
@@ -77,31 +76,84 @@ const portfolioData = {
   projects: [
     {
       title: "Stroke-Based and Free-Form Image Colorization",
-      description: "Developed an end-to-end image colorization pipeline using free-form and stroke-based techniques. Built and compared models including Autoencoder, U-Net, Hybrid ResNet18-UNet, GAN, and Stable Diffusion v1.5. Designed a custom stroke-generation dataset and trained a U-Net with ResNet34 encoder.",
+      description: "Developed an end-to-end image colorization pipeline using free-form and stroke-based techniques. Built and compared models including Autoencoder, U-Net, Hybrid ResNet18-UNet, GAN, and Stable Diffusion v1.5 for free-form colorization.",
+      fullDescription: "This project involved developing a comprehensive image colorization system that can work with both free-form input and stroke-based guidance. The system uses advanced deep learning techniques including U-Net architectures with ResNet encoders, GANs for realistic color generation, and ControlNet integration with Stable Diffusion for high-quality results. The project addresses the challenging problem of adding realistic colors to grayscale images while maintaining semantic consistency.",
       tags: ["Computer Vision", "Deep Learning", "PyTorch", "Stable Diffusion", "ControlNet"],
       icon: <Brain size={32} />,
-      date: "Mar - Apr 2025"
+      date: "Mar - Apr 2025",
+      features: [
+        "End-to-end pipeline for automatic colorization",
+        "Support for both free-form and stroke-based input",
+        "Integration with Stable Diffusion v1.5",
+        "Custom dataset generation for training",
+        "Comparative analysis of multiple architectures"
+      ],
+      githubLink: "https://github.com/satvika-eda/Stroke_Based_Colorization"
     },
     {
       title: "Multi Agent Code Development Team",
       description: "Created a modular multi-agent system for code generation using specialized LLMs (Planner, Chain-of-Thought, Developer, Debugger, and Explainer). Fine-tuned Qwen2.5-0.5B models using teacher-student transfer learning and integrated RLHF and RLAIF for improved code quality.",
+      fullDescription: "Built a sophisticated multi-agent system that mimics a real software development team, where different AI agents specialize in different aspects of code development. The system includes a Planner agent for breaking down requirements, a Chain-of-Thought agent for reasoning, Developer agents for implementation, Debugger agents for testing, and Explainer agents for documentation. Used advanced techniques like RLHF and RLAIF to continuously improve code quality and readability.",
       tags: ["LLM", "Multi-Agent Systems", "Fine-tuning", "RLHF", "Transfer Learning"],
       icon: <Code size={32} />,
-      date: "Jan - Apr 2025"
+      date: "Mar - Apr 2025",
+      features: [
+        "Specialized LLM agents for different development roles",
+        "Teacher-student transfer learning from Qwen2.5-7B to Qwen2.5-0.5B",
+        "Integration of RLHF and RLAIF for quality improvement",
+        "Custom reward model for code evaluation",
+        "User feedback collection system"
+      ],
+      githubLink: "https://github.com/satvika-eda/Multi_Agents_Code_Development_Team"
     },
     {
       title: "RAG based Chatbot for Document Querying",
       description: "Deployed LangChain for PDF data extraction; harnessed OpenAIEmbeddings and ChromaDB to develop embeddings, increasing data retrieval speed by 45%. Employed Streamlit library for user interaction and used GPT-4 to refine responses.",
+      fullDescription: "Built a sophisticated document querying system that uses Retrieval Augmented Generation (RAG) to provide accurate answers from document collections. The system processes PDFs, creates vector embeddings using OpenAI's embedding models, stores them in ChromaDB for efficient similarity search, and uses GPT-4 to generate contextually relevant responses. The Streamlit interface provides an intuitive chat-like experience for users to interact with their documents.",
       tags: ["NLP", "RAG", "LangChain", "ChromaDB", "Streamlit"],
       icon: <Database size={32} />,
-      date: "June 2024"
+      date: "Oct 2024",
+      features: [
+        "PDF document processing and chunking",
+        "Vector embeddings with OpenAI models",
+        "Fast similarity search with ChromaDB",
+        "GPT-4 powered response generation",
+        "Interactive Streamlit web interface"
+      ],
+      githubLink: "https://github.com/satvika-eda/RAG_based_document_assistant"
     },
     {
       title: "Accelerated Web Development via LLM Fine-Tuning",
       description: "Fine-tuned large language models with web-crawled datasets to produce personalized web pages, reducing development time and increasing user retention by 15%. Used Falcon, Llama, and CodeLlama LLMs with A100 GPU cluster and CUDA optimization.",
+      fullDescription: "Developed an AI-powered web development assistant that can generate complete, functional web pages from natural language descriptions. The system was trained on a large corpus of web development examples and can produce HTML, CSS, and JavaScript code that follows modern web standards. Used advanced GPU optimization techniques to achieve 30% faster inference times while maintaining high code quality.",
       tags: ["LLM", "Web Development", "CUDA", "GPU Optimization", "Fine-tuning"],
       icon: <Cpu size={32} />,
-      date: "Feb - Apr 2024"
+      date: "Feb - Apr 2024",
+      features: [
+        "Fine-tuned models on web development datasets",
+        "Support for HTML, CSS, and JavaScript generation",
+        "A100 GPU cluster with CUDA optimization",
+        "30% faster analysis and code output",
+        "Personalized webpage generation"
+      ],
+      githubLink: "https://github.com/satvika-eda/WebsiteGenerationNLP"
+    },
+    {
+      title: "V2V Simulations Using SUMO",
+      description: "Developed vehicle-to-vehicle communication simulations using SUMO framework to enhance road safety. Implemented Deep Q Network architecture for intelligent traffic management and collision avoidance systems.",
+      fullDescription: "This project focuses on developing advanced vehicle-to-vehicle (V2V) communication systems using the SUMO (Simulation of Urban Mobility) framework. The system implements sophisticated deep learning algorithms including Deep Q Networks (DQN) to enable intelligent decision-making for vehicles in traffic scenarios. The project addresses critical road safety challenges by creating autonomous agents that can communicate and coordinate with each other to prevent accidents and optimize traffic flow. The simulation environment provides realistic traffic scenarios for testing and validation of V2V communication protocols.",
+      tags: ["V2V Communications", "SUMO", "Deep Q Network", "Traffic Simulation", "Autonomous Vehicles"],
+      icon: <Server size={32} />,
+      date: "Sep - Dec 2023",
+      features: [
+        "Advanced V2V communication protocols implementation",
+        "Deep Q Network architecture for intelligent decision making",
+        "SUMO framework integration for realistic traffic simulation",
+        "Collision avoidance and safety enhancement systems",
+        "Multi-agent coordination for optimized traffic flow",
+        "Performance analysis and metrics collection"
+      ],
+      githubLink: "https://github.com/satvika-eda/V2VSimulationsUsingSumo",
     }
   ],
   achievements: [
@@ -130,29 +182,87 @@ const portfolioData = {
   }
 };
 
-// Modified SkillIcons component to work with your object structure
-const SkillIcons = ({ technicalProficiency }) => {
-  const skillIcons = {
-    "Machine Learning & AI": <Brain size={24} className="text-purple-400" />,
-    "Deep Learning": <Layers size={24} className="text-indigo-400" />,
-    "Natural Language Processing": <Languages size={24} className="text-pink-400" />,
-    "Computer Vision": <Cpu size={24} className="text-green-400" />,
-    "Python Development": <Code size={24} className="text-blue-400" />,
-    "Cloud Computing (AWS)": <Cloud size={24} className="text-orange-400" />,
-  };
+// Project Detail Modal Component
+const ProjectModal = ({ project, isOpen, onClose }) => {
+  if (!isOpen) return null;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-      {technicalProficiency.map((item, index) => (
-        <div key={index} className="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-200">
-          <div className="w-16 h-16 bg-gray-800 bg-opacity-50 rounded-full flex items-center justify-center mb-3 border border-gray-700 group-hover:border-blue-500 group-hover:shadow-lg group-hover:shadow-blue-500/20">
-            {skillIcons[item.skill] || <Code size={24} className="text-gray-400" />}
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6">
+          {/* Header */}
+          <div className="flex justify-between items-start mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-white">{project.title}</h2>
+              <p className="text-blue-400 mt-1">{project.date}</p>
+            </div>
+            <button 
+              onClick={onClose}
+              className="text-gray-400 hover:text-white"
+            >
+              <X size={24} />
+            </button>
           </div>
-          <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
-            {item.skill}
-          </span>
+
+          {/* Project Image/Demo
+          <div className="mb-6">
+            <img 
+              src={project.image || "https://via.placeholder.com/600x300/374151/9CA3AF?text=Project+Screenshot"}
+              alt={project.title}
+              className="w-full h-64 object-cover rounded-lg"
+            />
+          </div> */}
+
+          {/* Description */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-white mb-3">About This Project</h3>
+            <p className="text-gray-300 leading-relaxed">{project.fullDescription || project.description}</p>
+          </div>
+
+          {/* Technologies */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-white mb-3">Technologies Used</h3>
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag, index) => (
+                <span 
+                  key={index}
+                  className="bg-gray-700 text-blue-400 text-sm font-medium py-1 px-3 rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Features */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-white mb-3">Key Features</h3>
+            <ul className="space-y-2">
+              {project.features?.map((feature, index) => (
+                <li key={index} className="flex items-start text-gray-300">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  {feature}
+                </li>
+              )) || (
+                <li className="text-gray-400">Features list coming soon...</li>
+              )}
+            </ul>
+          </div>
+
+          {/* Links */}
+          <div className="flex gap-4">
+            <a 
+              href={project.githubLink || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+            >
+              <Github size={16} className="mr-2" />
+              View Code
+            </a>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };
@@ -161,6 +271,14 @@ const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [particles, setParticles] = useState([]);
   const [, forceUpdate] = useState();
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Modal handler function
+  const handleViewProject = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
   
   // Neural network particle animation effect
   useEffect(() => {
@@ -278,6 +396,32 @@ const Portfolio = () => {
     );
   };
 
+  // Icon-Based Skills Component
+  const SkillIcons = ({ technicalProficiency }) => {
+    const skillIcons = {
+      "Machine Learning & AI": <Brain size={24} className="text-purple-400" />,
+      "Deep Learning": <Layers size={24} className="text-indigo-400" />,
+      "Natural Language Processing": <Brain size={24} className="text-pink-400" />,
+      "Python Development": <Code size={24} className="text-blue-400" />,
+      "Cloud Computing (AWS)": <Cloud size={24} className="text-orange-400" />,
+    };
+
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {technicalProficiency.map((item, index) => (
+          <div key={index} className="flex flex-col items-center text-center group hover:transform hover:scale-105 transition-all duration-200">
+            <div className="w-16 h-16 bg-gray-800 bg-opacity-50 rounded-full flex items-center justify-center mb-3 border border-gray-700 group-hover:border-blue-500 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+              {skillIcons[item.skill] || <Code size={24} className="text-gray-400" />}
+            </div>
+            <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+              {item.skill}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+  
   // Experience item component
   const ExperienceItem = ({ title, company, location, period, achievements }) => {
     return (
@@ -393,12 +537,12 @@ const Portfolio = () => {
                 {portfolioData.name}
               </span>
             </h1>
-            {/* <p className="mt-2 text-xl text-gray-300">
+            <p className="mt-2 text-xl text-gray-300">
               {portfolioData.title}
-            </p> */}
+            </p>
             <div className="mt-8">
               <span className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg transform transition hover:scale-105">
-                {portfolioData.title}
+                AI/ML Specialist | Software Engineer
               </span>
             </div>
             <div className="mt-8 flex justify-center space-x-6">
@@ -433,7 +577,7 @@ const Portfolio = () => {
         </div>
       </header>
 
-
+      {/* About Section */}
       <section id="about" className="py-16 bg-gray-800 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 inline-block">
@@ -441,9 +585,9 @@ const Portfolio = () => {
           </h2>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="col-span-2">
-
+              {/* About section with image */}
               <div className="flex flex-col md:flex-row gap-6 items-center">
-
+                
                 <div className="flex-1">
                   <div className="text-lg text-gray-300 leading-relaxed space-y-4">
                     <p className="text-lg text-gray-300 leading-relaxed">
@@ -454,9 +598,9 @@ const Portfolio = () => {
 
                 <div className="flex-shrink-0">
                   <img 
-                    src="/IMG_8207.jpg" 
+                    src="/IMG_8207.jpg"
                     alt="Satvika Eda" 
-                    className="w-32 h-32 md:w-50 md:h-40 rounded-lg object-cover shadow-lg border-2 border-gray-700"
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-lg object-cover shadow-lg border-2 border-gray-700"
                   />
                 </div>
               </div>
@@ -499,6 +643,19 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Decorative circuit pattern */}
+        <div className="absolute bottom-0 right-0 opacity-10">
+          <svg width="404" height="384" fill="none" viewBox="0 0 404 384">
+            <path d="M0 384h404V0H0v384z" fill="url(#circuit-pattern)" />
+            <defs>
+              <pattern id="circuit-pattern" width="64" height="64" patternUnits="userSpaceOnUse">
+                <path d="M32 0v32m0 0h32M32 32H0m32 0v32" stroke="white" strokeWidth="2" />
+                <circle cx="32" cy="32" r="4" fill="white" />
+              </pattern>
+            </defs>
+          </svg>
         </div>
       </section>
       
@@ -569,12 +726,15 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  {/* <div className="mt-4 flex justify-end">
-                    <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center group">
+                  <div className="mt-4 flex justify-end">
+                    <button 
+                      onClick={() => handleViewProject(project)}
+                      className="text-blue-400 hover:text-blue-300 flex items-center group"
+                    >
                       <span className="mr-2 group-hover:mr-3 transition-all">View Project</span>
                       <ExternalLink size={16} />
-                    </a>
-                  </div> */}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -608,6 +768,7 @@ const Portfolio = () => {
           </div>
         </div>
         
+        {/* Binary code background */}
         <div className="absolute bottom-0 right-0 opacity-5 overflow-hidden">
           <div className="select-none text-xs leading-none text-gray-500" style={{ fontFamily: 'monospace' }}>
             {Array(10).fill().map((_, i) => (
@@ -621,7 +782,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+{/* Contact Section */}
       <section id="contact" className="py-16 bg-gray-800 text-white relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 inline-block">
@@ -693,17 +854,22 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-    
+      
+      {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 py-8 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center justify-center flex"> 
-          <div className="mb-4 md:mb-0">
-              <p className="text-gray-400">© {new Date().getFullYear()} 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500"> {portfolioData.name}</span>
-                 . All rights reserved.
-              </p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <div className="text-center">
+            <p className="text-gray-400">© {new Date().getFullYear()} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">{portfolioData.name}</span>. All rights reserved.</p>
           </div>
         </div>
       </footer>
+
+      {/* Project Modal */}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
