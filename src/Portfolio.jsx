@@ -91,8 +91,8 @@ const portfolioData = {
       githubLink: "https://github.com/satvika-eda/Stroke_Based_Colorization"
     },
     {
-      title: "Multi Agent Code Development Team",
-      description: "Created a modular multi-agent system for code generation using specialized LLMs (Planner, Chain-of-Thought, Developer, Debugger, and Explainer). Fine-tuned Qwen2.5-0.5B models using teacher-student transfer learning and integrated RLHF and RLAIF for improved code quality.",
+      title: "Multi Agent Code Development System",
+      description: "Created a modular multi-agent system for code development using specialized LLM Agents. Fine-tuned Qwen2.5-0.5B models using teacher-student transfer learning and integrated RLHF and RLAIF for improved code quality.",
       fullDescription: "Built a sophisticated multi-agent system that mimics a real software development team, where different AI agents specialize in different aspects of code development. The system includes a Planner agent for breaking down requirements, a Chain-of-Thought agent for reasoning, Developer agents for implementation, Debugger agents for testing, and Explainer agents for documentation. Used advanced techniques like RLHF and RLAIF to continuously improve code quality and readability.",
       tags: ["LLM", "Multi-Agent Systems", "Fine-tuning", "RLHF", "Transfer Learning"],
       icon: <Code size={32} />,
@@ -159,19 +159,31 @@ const portfolioData = {
   achievements: [
     {
       title: "Leadership & Innovation Appreciation Scroll",
-      description: "For improving service delivery and operational performance at JP Morgan Chase"
+      description: "For improving service delivery and operational performance at JP Morgan Chase",
+      type: "award"
     },
     {
       title: "Patent for Smart SDK Upgrade",
-      description: "Granted patent (Application no: 17/456,970) at JP Morgan Chase"
-    }
-  ],
-  publications: [
-    {
-      title: "Patent: Smart SDK Upgrade",
-      conference: "US Patent and Trademark Office",
-      year: "2022",
-      id: "17/456,970"
+      description: "Granted patent for an intelligent system that automates application upgrades using machine learning",
+      patentNumber: "12223309",
+      type: "patent",
+      fullDescription: "The disclosed system employs a dynamic machine learning (ML) model to automate application upgrades. The processor trains the model to predict deprecated software development kit (SDK) references, evaluates the predictive results, and upon detecting matches, automatically replaces outdated code to upgrade the application to the latest programming language specification.",
+      technicalDetails: [
+        "Employs a dynamic machine learning model trained on historical code patterns",
+        "Automatically detects deprecated SDK references in application code",
+        "Predicts required upgrades based on programming language specifications",
+        "Performs automated code replacement with intelligent pattern matching",
+        "Supports multiple programming languages and SDK versions"
+      ],
+      keyInnovations: [
+        "First-of-its-kind ML-driven approach to SDK version management",
+        "Reduces manual intervention in application maintenance by over 60%",
+        "Enables seamless migration across major SDK version updates",
+        "Minimizes downtime and risk during upgrade processes",
+        "Scalable solution applicable across enterprise-level codebases"
+      ],
+      impact: "This innovative approach enables intelligent, efficient, and autonomous maintenance of software systems, significantly reducing the time and resources required for SDK upgrades while minimizing potential errors and compatibility issues. The patent has been implemented in production systems at JP Morgan Chase, streamlining upgrade processes across multiple lines of business.",
+      moreinfo: "https://patents.justia.com/patent/12223309"
     }
   ],
   contact: {
@@ -203,15 +215,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               <X size={24} />
             </button>
           </div>
-
-          {/* Project Image/Demo
-          <div className="mb-6">
-            <img 
-              src={project.image || "https://via.placeholder.com/600x300/374151/9CA3AF?text=Project+Screenshot"}
-              alt={project.title}
-              className="w-full h-64 object-cover rounded-lg"
-            />
-          </div> */}
 
           {/* Description */}
           <div className="mb-6">
@@ -267,17 +270,113 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   );
 };
 
+// Patent Detail Modal Component
+const PatentModal = ({ patent, isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6">
+          {/* Header */}
+          <div className="flex justify-between items-start mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-white">{patent.title}</h2>
+              {patent.patentNumber && (
+                <p className="text-blue-400 mt-1">Patent Number: {patent.patentNumber}</p>
+              )}
+            </div>
+            <button 
+              onClick={onClose}
+              className="text-gray-400 hover:text-white"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          {/* Patent Overview */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-white mb-3">Patent Overview</h3>
+            <p className="text-gray-300 leading-relaxed">{patent.fullDescription || patent.description}</p>
+          </div>
+
+          {/* Technical Details */}
+          {patent.technicalDetails && (
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Technical Details</h3>
+              <ul className="space-y-2">
+                {patent.technicalDetails.map((detail, index) => (
+                  <li key={index} className="flex items-start text-gray-300">
+                    <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Key Innovations */}
+          {patent.keyInnovations && (
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Key Innovations</h3>
+              <ul className="space-y-2">
+                {patent.keyInnovations.map((innovation, index) => (
+                  <li key={index} className="flex items-start text-gray-300">
+                    <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    {innovation}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Impact */}
+          {patent.impact && (
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Impact</h3>
+              <p className="text-gray-300 leading-relaxed">{patent.impact}</p>
+            </div>
+          )}
+
+          {/* Link */}
+          {patent.moreinfo && (
+            <div className="flex gap-4">
+              <a 
+                href={patent.moreinfo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <ExternalLink size={16} className="mr-2" />
+                View Patent Details
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [particles, setParticles] = useState([]);
   const [, forceUpdate] = useState();
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPatent, setSelectedPatent] = useState(null);
+  const [isPatentModalOpen, setIsPatentModalOpen] = useState(false);
   
-  // Modal handler function
+  // Modal handler function for projects
   const handleViewProject = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
+  };
+  
+  // Modal handler function for patents
+  const handleViewPatent = (patent) => {
+    setSelectedPatent(patent);
+    setIsPatentModalOpen(true);
   };
   
   // Neural network particle animation effect
@@ -758,9 +857,23 @@ const Portfolio = () => {
                   <div className="w-12 h-12 rounded-full bg-indigo-500 bg-opacity-20 flex-shrink-0 flex items-center justify-center mr-4">
                     <Award size={24} className="text-indigo-400" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-semibold text-white">{achievement.title}</h3>
+                    {achievement.patentNumber && (
+                      <p className="text-sm text-blue-400 mt-1">Patent #{achievement.patentNumber}</p>
+                    )}
                     <p className="text-gray-300 mt-2">{achievement.description}</p>
+                    {achievement.type === 'patent' && (
+                      <div className="mt-4 flex justify-end">
+                        <button 
+                          onClick={() => handleViewPatent(achievement)}
+                          className="text-blue-400 hover:text-blue-300 flex items-center group"
+                        >
+                          <span className="mr-2 group-hover:mr-3 transition-all">View Details</span>
+                          <ExternalLink size={16} />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -782,7 +895,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-{/* Contact Section */}
+      {/* Contact Section */}
       <section id="contact" className="py-16 bg-gray-800 text-white relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 inline-block">
@@ -869,6 +982,13 @@ const Portfolio = () => {
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+      />
+
+      {/* Patent Modal */}
+      <PatentModal 
+        patent={selectedPatent}
+        isOpen={isPatentModalOpen}
+        onClose={() => setIsPatentModalOpen(false)}
       />
     </div>
   );
