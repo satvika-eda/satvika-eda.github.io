@@ -713,6 +713,20 @@ const Portfolio = () => {
             <div className="bg-gray-700 bg-opacity-50 p-6 rounded-lg border border-gray-600 backdrop-filter backdrop-blur-sm">
               <div className="flex items-center mb-4">
                 <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                <h3 className="text-xl font-semibold text-white">Experience</h3>
+              </div>
+              <div className="space-y-4">
+                {portfolioData.experience.map((exp, index) => (
+                  <div key={index} className="relative pl-6 border-l-2 border-blue-500">
+                    <h4 className="font-medium text-white text-sm">{exp.title}</h4>
+                    <p className="text-gray-400 text-sm">{exp.company}</p>
+                    <p className="text-blue-400 text-xs">{exp.period}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex items-center mt-10 mb-4">
+                <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
                 <h3 className="text-xl font-semibold text-white">Education</h3>
               </div>
               <div className="space-y-6">
