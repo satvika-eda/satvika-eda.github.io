@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, BookOpen, Briefcase, Cloud, GitBranch, Layers, Zap, Terminal, FileCode, Globe, Server, GraduationCap } from 'lucide-react';
-import { Mic } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award,
+  Cloud, Layers, Globe, Server, GraduationCap, Mic } from 'lucide-react';
 
 // Updated with Satvika's latest information from resume
 const portfolioData = {
@@ -17,8 +17,8 @@ const portfolioData = {
     {
       degree: "M.S. in Artificial Intelligence",
       institution: "Northeastern University",
-      year: "2023 - Present",
-      courses: "Foundations of AI, Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, AIHCI"
+      year: "2023 - 2025",
+      courses: "Foundations of AI, Programming Design Paradigms, Natural Language Processing, Algorithms, Machine Learning, Pattern Recognition & Computer Vision, AIHCI, Data Mining"
     },
     {
       degree: "B.Tech in Computer Science",
