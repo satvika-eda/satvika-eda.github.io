@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, BookOpen, Briefcase, Cloud, GitBranch, Layers, Zap, Terminal, FileCode, Globe, Server } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Menu, X, Brain, Code, Database, Cpu, Award, BookOpen, Briefcase, Cloud, GitBranch, Layers, Zap, Terminal, FileCode, Globe, Server, GraduationCap } from 'lucide-react';
+import { Mic } from 'lucide-react';
 
 // Updated with Satvika's latest information from resume
 const portfolioData = {
@@ -139,6 +140,69 @@ const portfolioData = {
       githubLink: "https://github.com/satvika-eda/WebsiteGenerationNLP"
     },
     {
+      title: "EcoGuardian: Multi-Agent Environmental Health Intelligence",
+      description: "Built a comprehensive multi-agent AI system integrating specialized platforms for environmental challenges as part of the Google Agent Intensive Capstone Project. Developed multiple GPT-powered agents for bioswale funding, environmental impact assessment, policy simplification, PFAS contamination analysis, and community engagement.",
+      fullDescription: "Participated in the Google Agent Intensive Capstone Project, developing EcoGuardian - a comprehensive multi-agent system that integrates multiple specialized AI platforms to address environmental challenges through education, policy support, advanced technology, and community engagement. The system leverages artificial intelligence, data analytics, and public involvement to transform environmental conservation efforts. Key components include BioSwale MicroGrant GPT for funding and education of bioswale projects, Environmental Impact GPT for comprehensive EIA services with AI-driven analysis and predictive modeling, Environmental Policy GPT as an AI-driven knowledge base simplifying complex policies, PFASIntel by EcoGuardian AI for PFAS contamination detection and remediation planning, and Save Our Bay for community engagement in conservation efforts. The integrated system offers end-to-end solutions combining AI-driven insights with community empowerment to foster a sustainable future.",
+      tags: ["Multi-Agent Systems", "AI", "Environmental Technology", "GPT", "LLM", "Kaggle", "Sustainability", "Google Agent Intensive"],
+      icon: <Globe size={32} />,
+      date: "2025",
+      features: [
+        "Multi-agent architecture integrating specialized GPT platforms",
+        "BioSwale MicroGrant GPT for funding facilitation and education",
+        "Environmental Impact GPT with AI-driven EIA services",
+        "Environmental Policy GPT simplifying complex policy documents",
+        "PFASIntel for AI-driven contamination detection and analysis",
+        "Community engagement platform (Save Our Bay)",
+        "End-to-end solutions combining AI insights with public participation",
+        "Part of Google Agent Intensive Capstone Project"
+      ],
+      githubLink: "https://github.com/satvika-eda/EcoGuardian",
+      writeupLink: "https://www.kaggle.com/competitions/agents-intensive-capstone-project/writeups/ecoguardian-multi-agent-environmental-health-inte"
+    },
+    {
+      title: "Voice Control Tower",
+      description: "Built a voice-driven multi-agent control system as part of the Kaggle competition *Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)*. Enabled natural language voice commands to orchestrate agents, trigger workflows, and manage execution in real time.",
+      fullDescription: "Voice Control Tower is a real-time, voice-driven multi-agent orchestration system developed as part of the Kaggle competition **Google DeepMind – Vibe Coding with Gemini 3 Pro in AI Studio**. The system allows users to issue spoken commands that are transcribed, interpreted, and routed to specialized AI agents responsible for planning, execution, monitoring, and feedback. The architecture emphasizes low-latency interaction, robust agent coordination, and voice-first human–AI interaction, showcasing applied agentic system design using Gemini 3 Pro.",
+      tags: [
+        "Voice AI",
+        "Multi-Agent Systems",
+        "Gemini 3 Pro",
+        "Google DeepMind",
+        "AI Studio",
+        "LLM Orchestration",
+        "Speech-to-Text",
+        "Kaggle"
+      ],
+      icon: <Mic size={32} />,
+      date: "2025",
+      features: [
+        "Voice-based natural language command interface",
+        "Multi-agent architecture for task planning, execution, and monitoring",
+        "Central control agent for intelligent routing and orchestration",
+        "Real-time feedback loop between agents and user",
+        "Built for Kaggle: Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)"
+      ],
+      githubLink: "https://github.com/satvika-eda/voice-control-tower",
+      writeupLink: "https://www.kaggle.com/competitions/gemini-3/writeups/voice-control-tower"
+    },     
+    {
+      title: "Predicting Loan Payback",
+      description: "Developed a Level 2 stacked ensemble model (XGBoost, CatBoost, LightGBM, Logistic Regression) to predict loan repayment. Achieved ROC-AUC of 0.92366 on Kaggle Playground Series competition, ranking 1344/3724. Incorporated SHAP analysis for model interpretability.",
+      fullDescription: "Participated in the Kaggle Playground Series competition to predict whether borrowers will repay their loans. The project involved analyzing borrower financial details, credit history, employment information, and loan characteristics from a synthetic dataset of 593,994 training records. Through systematic exploratory data analysis, feature engineering, and model experimentation, we developed a Level 2 stacked ensemble using Logistic Regression, XGBoost, CatBoost, and LightGBM as base learners, with a LightGBM meta-model and isotonic calibration. The model achieved an ROC-AUC of 0.92366, significantly improving over the initial baseline of 0.91069. Beyond predictive performance, we focused on model interpretability using SHAP analysis, providing insights into key features driving repayment likelihood. The project included rigorous validation through 5-fold stratified cross-validation and adversarial testing, ensuring robust generalization and minimizing overfitting.",
+      tags: ["Machine Learning", "XGBoost", "CatBoost", "LightGBM", "Ensemble Learning", "SHAP", "Kaggle", "Financial Analytics"],
+      icon: <Database size={32} />,
+      date: "2025",
+      features: [
+        "Level 2 stacked ensemble achieving ROC-AUC of 0.92366",
+        "Combined Logistic Regression, XGBoost, CatBoost, and LightGBM",
+        "SHAP analysis for model interpretability and feature importance",
+        "5-fold stratified cross-validation for robust performance evaluation",
+        "Adversarial testing to ensure train-test distribution similarity",
+        "Handled class imbalance (80% repayment, 20% default) effectively",
+        "Feature engineering with standardization and categorical encoding"
+      ]
+    },
+    {
       title: "V2V Simulations Using SUMO",
       description: "Developed vehicle-to-vehicle communication simulations using SUMO framework to enhance road safety. Implemented Deep Q Network architecture for intelligent traffic management and collision avoidance systems.",
       fullDescription: "This project focuses on developing advanced vehicle-to-vehicle (V2V) communication systems using the SUMO (Simulation of Urban Mobility) framework. The system implements sophisticated deep learning algorithms including Deep Q Networks (DQN) to enable intelligent decision-making for vehicles in traffic scenarios. The project addresses critical road safety challenges by creating autonomous agents that can communicate and coordinate with each other to prevent accidents and optimize traffic flow. The simulation environment provides realistic traffic scenarios for testing and validation of V2V communication protocols.",
@@ -184,6 +248,15 @@ const portfolioData = {
       ],
       impact: "This innovative approach enables intelligent, efficient, and autonomous maintenance of software systems, significantly reducing the time and resources required for SDK upgrades while minimizing potential errors and compatibility issues. The patent has been implemented in production systems at JP Morgan Chase, streamlining upgrade processes across multiple lines of business.",
       moreinfo: "https://patents.justia.com/patent/12223309"
+    }
+  ],
+  certificates: [
+    {
+      name: "5-Day AI Agents Intensive Course with Google",
+      issuer: "Google & Kaggle",
+      date: "2025-12-18",
+      description: "Successfully completed an intensive 5-day course on AI Agents, covering advanced techniques and practical applications in artificial intelligence.",
+      credentialUrl: "https://www.kaggle.com/certification/badges/arthurlewis/105"
     }
   ],
   contact: {
@@ -254,15 +327,28 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
           {/* Links */}
           <div className="flex gap-4">
-            <a 
-              href={project.githubLink || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
-            >
-              <Github size={16} className="mr-2" />
-              View Code
-            </a>
+            {project.githubLink && (
+              <a 
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <Github size={16} className="mr-2" />
+                View Code
+              </a>
+            )}
+            {project.writeupLink && (
+              <a 
+                href={project.writeupLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <FileText size={16} className="mr-2" />
+                View Writeup
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -568,6 +654,7 @@ const Portfolio = () => {
               <a href="#experience" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Experience</a>
               <a href="#projects" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Projects</a>
               <a href="#achievements" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Achievements</a>
+              <a href="#certificates" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Certificates</a>
               <a href="#contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Contact</a>
             </div>
             
@@ -614,6 +701,13 @@ const Portfolio = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Achievements
+              </a>
+              <a 
+                href="#certificates" 
+                className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Certificates
               </a>
               <a 
                 href="#contact" 
@@ -697,7 +791,7 @@ const Portfolio = () => {
 
                 <div className="flex-shrink-0">
                   <img 
-                    src="/IMG_8207.jpg"
+                    src="/me.jpg"
                     alt="Satvika Eda" 
                     className="w-32 h-32 md:w-40 md:h-40 rounded-lg object-cover shadow-lg border-2 border-gray-700"
                   />
@@ -893,8 +987,85 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Certificates Section */}
+      <section id="certificates" className="py-16 bg-gray-800 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 inline-block">
+            Certificates
+          </h2>
+          <p className="mt-4 text-lg text-gray-300">
+            Professional certifications and credentials
+          </p>
+          
+          {portfolioData.certificates.length > 0 ? (
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {portfolioData.certificates.map((certificate, index) => (
+                <div 
+                  key={index}
+                  className="bg-gray-900 bg-opacity-70 rounded-lg border border-gray-700 backdrop-filter backdrop-blur-sm p-6 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-full bg-green-500 bg-opacity-20 flex-shrink-0 flex items-center justify-center mr-4">
+                      <GraduationCap size={24} className="text-green-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-white mb-1">{certificate.name}</h3>
+                      <p className="text-blue-400 text-sm">{certificate.issuer}</p>
+                    </div>
+                  </div>
+                  
+                  {certificate.description && (
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed">{certificate.description}</p>
+                  )}
+                  
+                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-700">
+                    <div className="text-xs text-gray-400">
+                      {new Date(certificate.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+                    </div>
+                    {certificate.credentialUrl && (
+                      <a
+                        href={certificate.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm group"
+                      >
+                        <span className="mr-1">Verify</span>
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                  
+                  {certificate.credentialId && (
+                    <div className="mt-2 text-xs text-gray-500">
+                      ID: {certificate.credentialId}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 bg-gray-900 bg-opacity-50 rounded-lg border border-gray-700 p-12 text-center">
+              <GraduationCap size={48} className="mx-auto text-gray-600 mb-4" />
+              <p className="text-gray-400 text-lg">No certificates added yet.</p>
+            </div>
+          )}
+        </div>
+        
+        {/* Decorative pattern */}
+        <div className="absolute bottom-0 right-0 opacity-10">
+          <svg width="404" height="384" fill="none" viewBox="0 0 404 384">
+            <defs>
+              <pattern id="cert-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <circle cx="20" cy="20" r="2" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="404" height="384" fill="url(#cert-pattern)" />
+          </svg>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gray-800 text-white relative z-10">
+      <section id="contact" className="py-16 bg-gray-900 text-white relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 inline-block">
             Contact Me
