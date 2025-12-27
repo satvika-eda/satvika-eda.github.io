@@ -7,11 +7,11 @@ const portfolioData = {
   name: "Satvika Eda",
   title: "AI/ML Engineer & Software Developer",
   about: (
-    <>
-      I'm a Master's student in Artificial Intelligence at Northeastern University with passion for creating AI solutions that make a meaningful difference. My professional journey spans software engineering at JP Morgan Chase & Co and my current role as an ML Engineer Intern at Dassault Systèmes.
-      <br /><br />
-      I specialize in Natural Language Processing, Machine Learning, and Computer Vision, areas where I'm continually inspired to create innovative tools that address real-world challenges. Beyond my technical pursuits, I enjoy reading books, cooking, and watching movies. 
-    </>
+  <>
+    I recently graduated with a Master's in Artificial Intelligence from Northeastern University and am passionate about building AI solutions that create meaningful impact. My professional journey includes software engineering at JP Morgan Chase & Co and my recent role as an ML Engineer Intern at Dassault Systèmes.
+    <br /><br />
+    I specialize in Natural Language Processing, Machine Learning, and Computer Vision, and I'm continually inspired to develop innovative tools that solve real-world problems. Outside of work, I enjoy reading, cooking, and watching movies.
+  </>
   ),
   education: [
     {
@@ -43,7 +43,7 @@ const portfolioData = {
       title: "ML Engineer Intern",
       company: "Dassault Systèmes",
       location: "Boston, United States",
-      period: "August 2024 - December 2024",
+      period: "Aug 2024 - Dec 2024",
       achievements: [
         "Created a Task Decomposition System based on agent workflows using LangChain and Langgraph for project management, enhancing efficiency by almost 30% and reducing manual intervention",
         "Developed and deployed a chatbot system that leverages Langgraph Agents to dynamically route REST API-based user queries to the appropriate agents",
@@ -54,7 +54,7 @@ const portfolioData = {
       title: "Software Engineer",
       company: "JP Morgan Chase & Co",
       location: "Hyderabad, India",
-      period: "August 2021 - July 2023",
+      period: "Aug 2021 - July 2023",
       achievements: [
         "Innovated by crafting recipes that seamlessly automate JDK upgrades, contributing to the 'Open Rewrite' open-source software",
         "Spearheaded design, development workflow and publication of AWS proof-of-concept applications",
@@ -1029,7 +1029,7 @@ const Portfolio = () => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm group"
                       >
-                        <span className="mr-1">Verify</span>
+                        <span className="mr-1">View details</span>
                         <ExternalLink size={14} />
                       </a>
                     )}
