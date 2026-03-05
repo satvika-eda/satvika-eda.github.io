@@ -76,6 +76,125 @@ const portfolioData = {
   ],
   projects: [
     {
+      title: "Multi-Stream Hyper-Connections Transformer Implementation",
+      description: "Compared standard residuals, Hyper-Connections, and Manifold Hyper-Connections for character-level language modeling on the Shakespeare dataset, showing consistent validation loss improvements.",
+      fullDescription: "This research-focused notebook explores how different transformer connection strategies affect character-level language modeling performance on the Shakespeare dataset. It implements three variants: standard residual connections, Hyper-Connections (HC) with learnable mixing coefficients, and Manifold Hyper-Connections (MHC) that maintain multiple parallel states mixed via a learned matrix. The workflow includes data preprocessing, shared transformer components, separate model classes for each connection strategy, and a unified training loop that logs losses, timings, and generates sample text. Experiments are optimized for Kaggle's free GPU tier, and the final analysis compares validation losses, training times, and generated samples, highlighting that HC/MHC often achieve 1–5% better validation loss than standard residuals, especially in deeper networks.",
+      tags: ["Transformers", "Hyper-Connections", "PyTorch", "Language Modeling", "Kaggle", "Deep Learning"],
+      icon: <Layers size={32} />,
+      date: "Feb 2026 - Present",
+      features: [
+        "Implements three transformer connection strategies: standard residuals, Hyper-Connections, and Manifold Hyper-Connections",
+        "End-to-end workflow from Shakespeare dataset download and tokenization to training and evaluation",
+        "Shared transformer components with separate model classes for each connection variant",
+        "Systematic comparison of training and validation losses, plus timing measurements",
+        "Text generation demos from each model, from scratch and with prompts",
+        "Findings show HC/MHC often achieve 1–5% lower validation loss than standard residuals, with larger gains in deeper models"
+      ],
+      githubLink: "https://github.com/satvika-eda/gpt2_from_scratch",
+      image: "/projects/multi-stream-transformer/architecture.png"
+    },
+    {
+      title: "Wealth Advisor Copilot",
+      description: "Full-stack RAG copilot that lets wealth advisors ask natural language questions over SEC filings and financial documents, returning cited, compliant answers in a secure multi-tenant environment.",
+      fullDescription: "Wealth Advisor Copilot is a secure, multi-tenant chat assistant that helps wealth advisors quickly search and understand SEC filings and other financial documents. Advisors can upload PDFs or import 10-Ks, 10-Qs, and other filings directly from EDGAR, then ask questions in natural language. A retrieval-augmented generation (RAG) pipeline chunks documents, builds embeddings, retrieves and reranks the most relevant evidence, and uses GPT-4o to generate answers strictly grounded in that context with citations. The system includes a FastAPI backend with LangGraph workflows for intent routing, evidence retrieval, reranking, citation formatting, and audit logging, and a React + Vite + Tailwind frontend with dedicated Chat, Documents, and Admin views.",
+      tags: ["RAG", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "GPT-4o", "React", "TailwindCSS"],
+      icon: <Database size={32} />,
+      date: "Feb 2026",
+      features: [
+        "Import SEC filings (10-K, 10-Q, and more) directly from EDGAR by ticker or CIK",
+        "Upload PDFs, HTML, and text files into a secure, multi-tenant workspace",
+        "Natural language Q&A over financial documents with cited answers",
+        "RAG pipeline with semantic chunking, OpenAI embeddings, pgvector HNSW search, and optional Cohere reranking",
+        "LangGraph workflow for intent classification, evidence retrieval, response generation, and citation formatting",
+        "Full audit logging of all interactions for compliance and debugging"
+      ],
+      githubLink: "https://github.com/satvika-eda/wealth-advisor-copilot",
+      image: "/projects/wealth-advisor/architecture.png"
+    },
+    {
+      title: "Voice Scheduling Agent",
+      description: "Voice-powered meeting scheduler that uses Vapi AI for conversational capture of meeting details and Google Calendar for one-click event creation.",
+      fullDescription: "Voice Scheduling Agent is a voice-first meeting scheduler that lets users book meetings just by speaking. Built with a React + Vite frontend and a FastAPI backend, it uses Vapi AI for streaming voice interaction and OpenAI for natural language understanding. Meeting details such as title, date, time, duration, and attendee emails are extracted via Vapi tool calls, then sent to a backend API that authenticates with Google Calendar using a service account. Events are created directly in the configured calendar, making it easy to demo and deploy without complex user OAuth flows, while still supporting more advanced multi-user scenarios. The entire system is containerized and deployed to Google Cloud Run for scalable, managed hosting.",
+      tags: ["Voice AI", "Scheduling", "FastAPI", "React", "Vapi", "Google Calendar", "OpenAI", "Cloud Run"],
+      icon: <Mic size={32} />,
+      date: "Feb 2026",
+      features: [
+        "Voice-first interface for scheduling meetings by talking naturally",
+        "Vapi AI integration for streaming voice calls and structured tool outputs",
+        "FastAPI backend that creates Google Calendar events via service account authentication",
+        "Support for both demo (single calendar) and OAuth-based multi-user scenarios",
+        "Cloud Run deployment scripts for both frontend and backend",
+        "End-to-end documentation for local development, deployment, and Vapi assistant setup"
+      ],
+      githubLink: "https://github.com/satvika-eda/voice_scheduler",
+      demoLink: "https://www.loom.com/share/465193776c4a424facda3c6448b5152f"
+    },
+    {
+      title: "Voice Control Tower",
+      description: "Built a voice-driven multi-agent control system as part of the Kaggle competition *Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)*. Enabled natural language voice commands to orchestrate agents, trigger workflows, and manage execution in real time.",
+      fullDescription: "Voice Control Tower is a real-time, voice-driven multi-agent orchestration system developed as part of the Kaggle competition **Google DeepMind – Vibe Coding with Gemini 3 Pro in AI Studio**. The system allows users to issue spoken commands that are transcribed, interpreted, and routed to specialized AI agents responsible for planning, execution, monitoring, and feedback. The architecture emphasizes low-latency interaction, robust agent coordination, and voice-first human–AI interaction, showcasing applied agentic system design using Gemini 3 Pro.",
+      tags: [
+        "Voice AI",
+        "Multi-Agent Systems",
+        "Gemini 3 Pro",
+        "Google DeepMind",
+        "AI Studio",
+        "LLM Orchestration",
+        "Speech-to-Text",
+        "Kaggle"
+      ],
+      icon: <Mic size={32} />,
+      date: "Jan 2026",
+      features: [
+        "Voice-based natural language command interface",
+        "Multi-agent architecture for task planning, execution, and monitoring",
+        "Central control agent for intelligent routing and orchestration",
+        "Real-time feedback loop between agents and user",
+        "Built for Kaggle: Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)"
+      ],
+      githubLink: "https://github.com/satvika-eda/voice-control-tower",
+      writeupLink: "https://www.kaggle.com/competitions/gemini-3/writeups/voice-control-tower"
+    },     
+    {
+      title: "EcoGuardian: Multi-Agent Environmental Health Intelligence",
+      description: "Built a comprehensive multi-agent AI system integrating specialized platforms for environmental challenges as part of the Google Agent Intensive Capstone Project. Developed multiple GPT-powered agents for bioswale funding, environmental impact assessment, policy simplification, PFAS contamination analysis, and community engagement.",
+      fullDescription: "Participated in the Google Agent Intensive Capstone Project, developing EcoGuardian - a comprehensive multi-agent system that integrates multiple specialized AI platforms to address environmental challenges through education, policy support, advanced technology, and community engagement. The system leverages artificial intelligence, data analytics, and public involvement to transform environmental conservation efforts. Key components include BioSwale MicroGrant GPT for funding and education of bioswale projects, Environmental Impact GPT for comprehensive EIA services with AI-driven analysis and predictive modeling, Environmental Policy GPT as an AI-driven knowledge base simplifying complex policies, PFASIntel by EcoGuardian AI for PFAS contamination detection and remediation planning, and Save Our Bay for community engagement in conservation efforts. The integrated system offers end-to-end solutions combining AI-driven insights with community empowerment to foster a sustainable future.",
+      tags: ["Multi-Agent Systems", "AI", "Environmental Technology", "GPT", "LLM", "Kaggle", "Sustainability", "Google Agent Intensive"],
+      icon: <Globe size={32} />,
+      date: "Dec 2025",
+      features: [
+        "Multi-agent architecture integrating specialized GPT platforms",
+        "BioSwale MicroGrant GPT for funding facilitation and education",
+        "Environmental Impact GPT with AI-driven EIA services",
+        "Environmental Policy GPT simplifying complex policy documents",
+        "PFASIntel for AI-driven contamination detection and analysis",
+        "Community engagement platform (Save Our Bay)",
+        "End-to-end solutions combining AI insights with public participation",
+        "Part of Google Agent Intensive Capstone Project"
+      ],
+      githubLink: "https://github.com/satvika-eda/EcoGuardian",
+      writeupLink: "https://www.kaggle.com/competitions/agents-intensive-capstone-project/writeups/ecoguardian-multi-agent-environmental-health-inte"
+    },
+    {
+      title: "Predicting Loan Payback",
+      description: "Developed a Level 2 stacked ensemble model (XGBoost, CatBoost, LightGBM, Logistic Regression) to predict loan repayment. Achieved ROC-AUC of 0.92366 on Kaggle Playground Series competition, ranking 1344/3724. Incorporated SHAP analysis for model interpretability.",
+      fullDescription: "Participated in the Kaggle Playground Series competition to predict whether borrowers will repay their loans. The project involved analyzing borrower financial details, credit history, employment information, and loan characteristics from a synthetic dataset of 593,994 training records. Through systematic exploratory data analysis, feature engineering, and model experimentation, we developed a Level 2 stacked ensemble using Logistic Regression, XGBoost, CatBoost, and LightGBM as base learners, with a LightGBM meta-model and isotonic calibration. The model achieved an ROC-AUC of 0.92366, significantly improving over the initial baseline of 0.91069. Beyond predictive performance, we focused on model interpretability using SHAP analysis, providing insights into key features driving repayment likelihood. The project included rigorous validation through 5-fold stratified cross-validation and adversarial testing, ensuring robust generalization and minimizing overfitting.",
+      tags: ["Machine Learning", "XGBoost", "CatBoost", "LightGBM", "Ensemble Learning", "SHAP", "Kaggle", "Financial Analytics"],
+      icon: <Database size={32} />,
+      date: "Nov - Dec 2025",
+      features: [
+        "Level 2 stacked ensemble achieving ROC-AUC of 0.92366",
+        "Combined Logistic Regression, XGBoost, CatBoost, and LightGBM",
+        "SHAP analysis for model interpretability and feature importance",
+        "5-fold stratified cross-validation for robust performance evaluation",
+        "Adversarial testing to ensure train-test distribution similarity",
+        "Handled class imbalance (80% repayment, 20% default) effectively",
+        "Feature engineering with standardization and categorical encoding"
+      ],
+      githubLink: "https://github.com/satvika-eda/project-predicting-payback",
+      image: "/projects/predicting-loan-payback/ensemble.png"
+    },
+    {
       title: "Stroke-Based and Free-Form Image Colorization",
       description: "Developed an end-to-end image colorization pipeline using free-form and stroke-based techniques. Built and compared models including Autoencoder, U-Net, Hybrid ResNet18-UNet, GAN, and Stable Diffusion v1.5 for free-form colorization.",
       fullDescription: "This project involved developing a comprehensive image colorization system that can work with both free-form input and stroke-based guidance. The system uses advanced deep learning techniques including U-Net architectures with ResNet encoders, GANs for realistic color generation, and ControlNet integration with Stable Diffusion for high-quality results. The project addresses the challenging problem of adding realistic colors to grayscale images while maintaining semantic consistency.",
@@ -89,7 +208,8 @@ const portfolioData = {
         "Custom dataset generation for training",
         "Comparative analysis of multiple architectures"
       ],
-      githubLink: "https://github.com/satvika-eda/Stroke_Based_Colorization"
+      githubLink: "https://github.com/satvika-eda/Stroke_Based_Colorization",
+      demoLink: "https://www.loom.com/share/ebac9c075cd74430a640661023946c2e"
     },
     {
       title: "Multi Agent Code Development System",
@@ -140,69 +260,6 @@ const portfolioData = {
       githubLink: "https://github.com/satvika-eda/WebsiteGenerationNLP"
     },
     {
-      title: "EcoGuardian: Multi-Agent Environmental Health Intelligence",
-      description: "Built a comprehensive multi-agent AI system integrating specialized platforms for environmental challenges as part of the Google Agent Intensive Capstone Project. Developed multiple GPT-powered agents for bioswale funding, environmental impact assessment, policy simplification, PFAS contamination analysis, and community engagement.",
-      fullDescription: "Participated in the Google Agent Intensive Capstone Project, developing EcoGuardian - a comprehensive multi-agent system that integrates multiple specialized AI platforms to address environmental challenges through education, policy support, advanced technology, and community engagement. The system leverages artificial intelligence, data analytics, and public involvement to transform environmental conservation efforts. Key components include BioSwale MicroGrant GPT for funding and education of bioswale projects, Environmental Impact GPT for comprehensive EIA services with AI-driven analysis and predictive modeling, Environmental Policy GPT as an AI-driven knowledge base simplifying complex policies, PFASIntel by EcoGuardian AI for PFAS contamination detection and remediation planning, and Save Our Bay for community engagement in conservation efforts. The integrated system offers end-to-end solutions combining AI-driven insights with community empowerment to foster a sustainable future.",
-      tags: ["Multi-Agent Systems", "AI", "Environmental Technology", "GPT", "LLM", "Kaggle", "Sustainability", "Google Agent Intensive"],
-      icon: <Globe size={32} />,
-      date: "2025",
-      features: [
-        "Multi-agent architecture integrating specialized GPT platforms",
-        "BioSwale MicroGrant GPT for funding facilitation and education",
-        "Environmental Impact GPT with AI-driven EIA services",
-        "Environmental Policy GPT simplifying complex policy documents",
-        "PFASIntel for AI-driven contamination detection and analysis",
-        "Community engagement platform (Save Our Bay)",
-        "End-to-end solutions combining AI insights with public participation",
-        "Part of Google Agent Intensive Capstone Project"
-      ],
-      githubLink: "https://github.com/satvika-eda/EcoGuardian",
-      writeupLink: "https://www.kaggle.com/competitions/agents-intensive-capstone-project/writeups/ecoguardian-multi-agent-environmental-health-inte"
-    },
-    {
-      title: "Voice Control Tower",
-      description: "Built a voice-driven multi-agent control system as part of the Kaggle competition *Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)*. Enabled natural language voice commands to orchestrate agents, trigger workflows, and manage execution in real time.",
-      fullDescription: "Voice Control Tower is a real-time, voice-driven multi-agent orchestration system developed as part of the Kaggle competition **Google DeepMind – Vibe Coding with Gemini 3 Pro in AI Studio**. The system allows users to issue spoken commands that are transcribed, interpreted, and routed to specialized AI agents responsible for planning, execution, monitoring, and feedback. The architecture emphasizes low-latency interaction, robust agent coordination, and voice-first human–AI interaction, showcasing applied agentic system design using Gemini 3 Pro.",
-      tags: [
-        "Voice AI",
-        "Multi-Agent Systems",
-        "Gemini 3 Pro",
-        "Google DeepMind",
-        "AI Studio",
-        "LLM Orchestration",
-        "Speech-to-Text",
-        "Kaggle"
-      ],
-      icon: <Mic size={32} />,
-      date: "2025",
-      features: [
-        "Voice-based natural language command interface",
-        "Multi-agent architecture for task planning, execution, and monitoring",
-        "Central control agent for intelligent routing and orchestration",
-        "Real-time feedback loop between agents and user",
-        "Built for Kaggle: Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)"
-      ],
-      githubLink: "https://github.com/satvika-eda/voice-control-tower",
-      writeupLink: "https://www.kaggle.com/competitions/gemini-3/writeups/voice-control-tower"
-    },     
-    {
-      title: "Predicting Loan Payback",
-      description: "Developed a Level 2 stacked ensemble model (XGBoost, CatBoost, LightGBM, Logistic Regression) to predict loan repayment. Achieved ROC-AUC of 0.92366 on Kaggle Playground Series competition, ranking 1344/3724. Incorporated SHAP analysis for model interpretability.",
-      fullDescription: "Participated in the Kaggle Playground Series competition to predict whether borrowers will repay their loans. The project involved analyzing borrower financial details, credit history, employment information, and loan characteristics from a synthetic dataset of 593,994 training records. Through systematic exploratory data analysis, feature engineering, and model experimentation, we developed a Level 2 stacked ensemble using Logistic Regression, XGBoost, CatBoost, and LightGBM as base learners, with a LightGBM meta-model and isotonic calibration. The model achieved an ROC-AUC of 0.92366, significantly improving over the initial baseline of 0.91069. Beyond predictive performance, we focused on model interpretability using SHAP analysis, providing insights into key features driving repayment likelihood. The project included rigorous validation through 5-fold stratified cross-validation and adversarial testing, ensuring robust generalization and minimizing overfitting.",
-      tags: ["Machine Learning", "XGBoost", "CatBoost", "LightGBM", "Ensemble Learning", "SHAP", "Kaggle", "Financial Analytics"],
-      icon: <Database size={32} />,
-      date: "2025",
-      features: [
-        "Level 2 stacked ensemble achieving ROC-AUC of 0.92366",
-        "Combined Logistic Regression, XGBoost, CatBoost, and LightGBM",
-        "SHAP analysis for model interpretability and feature importance",
-        "5-fold stratified cross-validation for robust performance evaluation",
-        "Adversarial testing to ensure train-test distribution similarity",
-        "Handled class imbalance (80% repayment, 20% default) effectively",
-        "Feature engineering with standardization and categorical encoding"
-      ]
-    },
-    {
       title: "V2V Simulations Using SUMO",
       description: "Developed vehicle-to-vehicle communication simulations using SUMO framework to enhance road safety. Implemented Deep Q Network architecture for intelligent traffic management and collision avoidance systems.",
       fullDescription: "This project focuses on developing advanced vehicle-to-vehicle (V2V) communication systems using the SUMO (Simulation of Urban Mobility) framework. The system implements sophisticated deep learning algorithms including Deep Q Networks (DQN) to enable intelligent decision-making for vehicles in traffic scenarios. The project addresses critical road safety challenges by creating autonomous agents that can communicate and coordinate with each other to prevent accidents and optimize traffic flow. The simulation environment provides realistic traffic scenarios for testing and validation of V2V communication protocols.",
@@ -218,6 +275,7 @@ const portfolioData = {
         "Performance analysis and metrics collection"
       ],
       githubLink: "https://github.com/satvika-eda/V2VSimulationsUsingSumo",
+      demoLink: "https://www.loom.com/share/49257f5d48484618941cdbbbe267365b"
     }
   ],
   achievements: [
@@ -310,6 +368,18 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             </div>
           </div>
 
+          {/* Optional Project Diagram */}
+          {project.image && (
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-white mb-3">Architecture Diagram</h3>
+              <img
+                src={project.image}
+                alt={`${project.title} architecture diagram`}
+                className="w-full rounded-lg border border-gray-700 shadow-md"
+              />
+            </div>
+          )}
+
           {/* Key Features */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-white mb-3">Key Features</h3>
@@ -326,7 +396,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           </div>
 
           {/* Links */}
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             {project.githubLink && (
               <a 
                 href={project.githubLink}
@@ -347,6 +417,39 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               >
                 <FileText size={16} className="mr-2" />
                 View Writeup
+              </a>
+            )}
+            {project.demoLink && (
+              <a 
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <ExternalLink size={16} className="mr-2" />
+                Watch Demo
+              </a>
+            )}
+            {project.frontendLink && (
+              <a 
+                href={project.frontendLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <ExternalLink size={16} className="mr-2" />
+                Open Frontend
+              </a>
+            )}
+            {project.backendLink && (
+              <a 
+                href={project.backendLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <ExternalLink size={16} className="mr-2" />
+                Backend API
               </a>
             )}
           </div>
