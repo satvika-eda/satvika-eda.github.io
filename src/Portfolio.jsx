@@ -40,6 +40,17 @@ const portfolioData = {
   ],
   experience: [
     {
+      title: "AI Engineer",
+      company: "CBRE",
+      location: "Remote, United States",
+      period: "March 2026 - Present",
+      achievements: [
+        "Developed a high-performance production LLM platform on Palantir AIP, scaling LLM inference across 30 parallel model calls with race condition handling on shared state, reducing manual report generation by 70% for 600 appraisers",
+        "Architected a conversational AI evaluation system validating 30 regulatory line items, with automated metrics, fallback logic, and human-in-the-loop review that collapsed review time from hours to 30 seconds",
+        "Engineered React and TypeScript interfaces adopted by 600 appraisers across Wells Fargo, Bank of America, and Bank OZK, delivering production-grade features through iterative Agile/Scrum sessions with business partners"
+      ]
+    },
+    {
       title: "ML Engineer Intern",
       company: "Dassault Systèmes",
       location: "Boston, United States",
