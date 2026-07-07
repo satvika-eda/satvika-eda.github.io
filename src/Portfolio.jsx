@@ -88,19 +88,20 @@ const portfolioData = {
   projects: [
     {
       title: "LLM Evaluation Harness",
-      description: "Multi-model LLM evaluation framework that benchmarks GPT-4o, Claude, and Mistral on HotpotQA and TruthfulQA, scoring faithfulness, hallucination, and answer relevance with RAGAS, DeepEval, and G-Eval — surfaced through a live leaderboard dashboard.",
-      fullDescription: "LLM Evaluation Harness is a production-style framework for running structured, reproducible evaluations across multiple LLM providers and grading their responses with several complementary scoring frameworks. Questions from HotpotQA (retrieval-grounded) and TruthfulQA are run through model runners for OpenAI, Anthropic, and HuggingFace, and each response is scored with RAGAS (faithfulness, answer relevance), DeepEval (hallucination detection, G-Eval coherence), and BERTScore for semantic similarity. The system is built around a FastAPI service that enqueues evaluation runs onto RQ workers backed by Redis, persists questions, responses, and scores in PostgreSQL, and exposes a live leaderboard with per-model score breakdowns. Generations are content-addressed (hashed on prompt, model, and generation params) and cached in Redis to avoid paying for duplicate LLM calls, and an LLM-as-judge (gpt-4o-mini) drives the qualitative metrics. The pipeline is fully containerized with Docker Compose, with tuned memory limits and configurable judge/embedding models so it runs on modest hardware.",
-      tags: ["LLM Evaluation", "RAGAS", "DeepEval", "G-Eval", "BERTScore", "FastAPI", "Redis", "PostgreSQL", "Docker"],
+      description: "Multi-model LLM evaluation framework that benchmarks open-weight candidates — Llama-3.1-8B, Qwen2.5-72B, and DeepSeek-V3.2 — on HotpotQA and TruthfulQA, scoring faithfulness, hallucination, and answer relevance with RAGAS, DeepEval, and G-Eval — surfaced through a live leaderboard dashboard.",
+      fullDescription: "LLM Evaluation Harness is a production-style framework for running structured, reproducible evaluations across multiple LLM providers and grading their responses with several complementary scoring frameworks. Three open-weight candidate models — Llama-3.1-8B-Instruct, Qwen2.5-72B-Instruct, and DeepSeek-V3.2 — are served through the HuggingFace Inference Providers router at near-greedy decoding, and their answers to HotpotQA (retrieval-grounded) and TruthfulQA questions are scored with RAGAS (faithfulness, answer relevance), DeepEval (hallucination detection, G-Eval coherence), and BERTScore for semantic similarity. An OpenAI GPT model (gpt-4o-mini) acts as the LLM-as-judge for the qualitative metrics, with OpenAI text-embedding-3-small powering answer-relevance embeddings and RoBERTa-large backing BERTScore; the judge is swappable to any OpenAI-compatible endpoint. The system is built around a FastAPI service that enqueues evaluation runs onto RQ workers backed by Redis, persists questions, responses, and scores in PostgreSQL, and exposes a live leaderboard with per-model score breakdowns. Generations are content-addressed (hashed on prompt, model, and generation params) and cached in Redis to avoid paying for duplicate LLM calls. The pipeline is fully containerized with Docker Compose, with tuned memory limits and configurable judge/embedding models so it runs on modest hardware.",
+      tags: ["LLM Evaluation", "RAGAS", "DeepEval", "G-Eval", "BERTScore", "HuggingFace", "FastAPI", "Redis", "PostgreSQL", "Docker"],
       icon: <Gauge size={32} />,
       date: "2026",
       features: [
-        "Benchmarks GPT-4o, Claude, and Mistral on HotpotQA and TruthfulQA",
+        "Benchmarks three open-weight candidates (Llama-3.1-8B, Qwen2.5-72B, DeepSeek-V3.2) served via the HuggingFace Inference Providers router",
         "Scores responses with RAGAS, DeepEval, G-Eval, and BERTScore",
+        "LLM-as-judge (OpenAI gpt-4o-mini) for qualitative metrics, swappable to any OpenAI-compatible endpoint to avoid self-preference bias",
+        "OpenAI text-embedding-3-small for answer-relevance embeddings and RoBERTa-large for BERTScore semantic similarity",
         "Retrieval context threaded into prompts for grounded HotpotQA evaluation, with metric gating so faithfulness/hallucination only run when real context is present",
         "FastAPI service enqueuing evaluation runs to RQ workers backed by Redis",
         "PostgreSQL persistence for questions, responses, and scores with unique constraints for safe resume and honest cost tracking",
         "Content-addressed generation caching (hash of prompt, model, and params) to eliminate duplicate LLM calls",
-        "LLM-as-judge (gpt-4o-mini) for qualitative metrics with deterministic seeded sampling",
         "Fully Dockerized with tuned memory limits and configurable judge/embedding models"
       ],
       githubLink: "https://github.com/satvika-eda/LLM-Evaluation-Harness"
