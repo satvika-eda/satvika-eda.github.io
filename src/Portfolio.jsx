@@ -51,45 +51,33 @@ const portfolioData = {
       ]
     },
     {
-      title: "ML Engineer Intern",
+      title: "Machine Learning Engineer (Internship)",
       company: "Dassault Systèmes",
       location: "Boston, United States",
       period: "Aug 2024 - Dec 2024",
       achievements: [
-        "Created a Task Decomposition System based on agent workflows using LangChain and Langgraph for project management, enhancing efficiency by almost 30% and reducing manual intervention",
-        "Developed and deployed a chatbot system that leverages Langgraph Agents to dynamically route REST API-based user queries to the appropriate agents",
-        "Streamlined and automated project planning processes within the firm"
+        "Led a 3-engineer team to build a production LLM platform on LangGraph, collaborating closely with applied scientists to prototype and scale a Llama-powered conversational AI assistant that cut engineering workflow time by 80%",
+        "Designed and evaluated an LLM inference pipeline with intent-classification routing across 6 specialized agents, investigating design approaches and optimizing inference to achieve 95% routing accuracy at scale",
+        "Built a scalable LLM data processing pipeline with FastAPI-served ETL and a RAG pipeline grounding conversational AI responses in domain-specific documentation, reducing generation time by 80% across multi-tenant environments"
       ]
     },
     {
       title: "Software Engineer",
-      company: "JP Morgan Chase & Co",
+      company: "JPMorgan Chase",
       location: "Hyderabad, India",
-      period: "Aug 2021 - July 2023",
+      period: "March 2021 - Aug 2023",
       achievements: [
-        "Innovated by crafting recipes that seamlessly automate JDK upgrades, contributing to the 'Open Rewrite' open-source software",
-        "Spearheaded design, development workflow and publication of AWS proof-of-concept applications",
-        "Launched a JDK automation tool integrated in pipeline to facilitate stable version migrations",
-        "Engineered AWS projects like S3 utility for comprehensive reporting on bucket information"
-      ]
-    },
-    {
-      title: "Software Engineer Intern",
-      company: "JP Morgan Chase & Co",
-      location: "Hyderabad, India",
-      period: "March 2021 - July 2021",
-      achievements: [
-        "Deployed 10+ Java-based microservices with database on company's private cloud with unit testing",
-        "Conceptualized and implemented utilities like Light Switch using shell scripting languages",
-        "Designed scalable infrastructure using DevOps best practices, optimizing efficiency across 5 lines of business"
+        "Co-invented U.S. Patent 12,223,309, a production ML platform in Java applying object-oriented design patterns and scalable architecture to predict deprecated SDK references across 100+ enterprise services, with CloudWatch, Grafana, and Splunk observability",
+        "Built OpenRewrite automation on Jenkins CI/CD enabling 90% automatic JDK upgrades across 100+ products, driving a 60% reduction in upgrade failure rate through production-grade reliability engineering",
+        "Designed and deployed 10+ microservices on Gaia cloud with a Light Switch utility automating service failover and restart workflows, reducing production downtime by 70% across distributed infrastructure"
       ]
     }
   ],
   projects: [
     {
       title: "LLM Evaluation Harness",
-      description: "Multi-model LLM evaluation framework that benchmarks open-weight candidates — Llama-3.1-8B, Qwen2.5-72B, and DeepSeek-V3.2 — on HotpotQA and TruthfulQA, scoring faithfulness, hallucination, and answer relevance with RAGAS, DeepEval, and G-Eval — surfaced through a live leaderboard dashboard.",
-      fullDescription: "LLM Evaluation Harness is a production-style framework for running structured, reproducible evaluations across multiple LLM providers and grading their responses with several complementary scoring frameworks. Three open-weight candidate models — Llama-3.1-8B-Instruct, Qwen2.5-72B-Instruct, and DeepSeek-V3.2 — are served through the HuggingFace Inference Providers router at near-greedy decoding, and their answers to HotpotQA (retrieval-grounded) and TruthfulQA questions are scored with RAGAS (faithfulness, answer relevance), DeepEval (hallucination detection, G-Eval coherence), and BERTScore for semantic similarity. An OpenAI GPT model (gpt-4o-mini) acts as the LLM-as-judge for the qualitative metrics, with OpenAI text-embedding-3-small powering answer-relevance embeddings and RoBERTa-large backing BERTScore; the judge is swappable to any OpenAI-compatible endpoint. The system is built around a FastAPI service that enqueues evaluation runs onto RQ workers backed by Redis, persists questions, responses, and scores in PostgreSQL, and exposes a live leaderboard with per-model score breakdowns. Generations are content-addressed (hashed on prompt, model, and generation params) and cached in Redis to avoid paying for duplicate LLM calls. The pipeline is fully containerized with Docker Compose, with tuned memory limits and configurable judge/embedding models so it runs on modest hardware.",
+      description: "Multi-model LLM evaluation framework that benchmarks open-weight candidates - Llama-3.1-8B, Qwen2.5-72B, and DeepSeek-V3.2 - on HotpotQA and TruthfulQA, scoring faithfulness, hallucination, and answer relevance with RAGAS, DeepEval, and G-Eval - surfaced through a live leaderboard dashboard.",
+      fullDescription: "LLM Evaluation Harness is a production-style framework for running structured, reproducible evaluations across multiple LLM providers and grading their responses with several complementary scoring frameworks. Three open-weight candidate models - Llama-3.1-8B-Instruct, Qwen2.5-72B-Instruct, and DeepSeek-V3.2 - are served through the HuggingFace Inference Providers router at near-greedy decoding, and their answers to HotpotQA (retrieval-grounded) and TruthfulQA questions are scored with RAGAS (faithfulness, answer relevance), DeepEval (hallucination detection, G-Eval coherence), and BERTScore for semantic similarity. An OpenAI GPT model (gpt-4o-mini) acts as the LLM-as-judge for the qualitative metrics, with OpenAI text-embedding-3-small powering answer-relevance embeddings and RoBERTa-large backing BERTScore; the judge is swappable to any OpenAI-compatible endpoint. The system is built around a FastAPI service that enqueues evaluation runs onto RQ workers backed by Redis, persists questions, responses, and scores in PostgreSQL, and exposes a live leaderboard with per-model score breakdowns. Generations are content-addressed (hashed on prompt, model, and generation params) and cached in Redis to avoid paying for duplicate LLM calls. The pipeline is fully containerized with Docker Compose, with tuned memory limits and configurable judge/embedding models so it runs on modest hardware.",
       tags: ["LLM Evaluation", "RAGAS", "DeepEval", "G-Eval", "BERTScore", "HuggingFace", "FastAPI", "Redis", "PostgreSQL", "Docker"],
       icon: <Gauge size={32} />,
       date: "2026",
@@ -109,7 +97,7 @@ const portfolioData = {
     {
       title: "Multi-Stream Hyper-Connections Transformer Implementation",
       description: "Compared standard residuals, Hyper-Connections, and Manifold Hyper-Connections for character-level language modeling on the Shakespeare dataset, showing consistent validation loss improvements.",
-      fullDescription: "This research-focused notebook explores how different transformer connection strategies affect character-level language modeling performance on the Shakespeare dataset. It implements three variants: standard residual connections, Hyper-Connections (HC) with learnable mixing coefficients, and Manifold Hyper-Connections (MHC) that maintain multiple parallel states mixed via a learned matrix. The workflow includes data preprocessing, shared transformer components, separate model classes for each connection strategy, and a unified training loop that logs losses, timings, and generates sample text. Experiments are optimized for Kaggle's free GPU tier, and the final analysis compares validation losses, training times, and generated samples, highlighting that HC/MHC often achieve 1–5% better validation loss than standard residuals, especially in deeper networks.",
+      fullDescription: "This research-focused notebook explores how different transformer connection strategies affect character-level language modeling performance on the Shakespeare dataset. It implements three variants: standard residual connections, Hyper-Connections (HC) with learnable mixing coefficients, and Manifold Hyper-Connections (MHC) that maintain multiple parallel states mixed via a learned matrix. The workflow includes data preprocessing, shared transformer components, separate model classes for each connection strategy, and a unified training loop that logs losses, timings, and generates sample text. Experiments are optimized for Kaggle's free GPU tier, and the final analysis compares validation losses, training times, and generated samples, highlighting that HC/MHC often achieve 1-5% better validation loss than standard residuals, especially in deeper networks.",
       tags: ["Transformers", "Hyper-Connections", "PyTorch", "Language Modeling", "Kaggle", "Deep Learning"],
       icon: <Layers size={32} />,
       date: "Feb 2026 - Present",
@@ -119,7 +107,7 @@ const portfolioData = {
         "Shared transformer components with separate model classes for each connection variant",
         "Systematic comparison of training and validation losses, plus timing measurements",
         "Text generation demos from each model, from scratch and with prompts",
-        "Findings show HC/MHC often achieve 1–5% lower validation loss than standard residuals, with larger gains in deeper models"
+        "Findings show HC/MHC often achieve 1-5% lower validation loss than standard residuals, with larger gains in deeper models"
       ],
       githubLink: "https://github.com/satvika-eda/gpt2_from_scratch",
       image: "/projects/multi-stream-transformer/architecture.png"
@@ -162,8 +150,8 @@ const portfolioData = {
     },
     {
       title: "Voice Control Tower",
-      description: "Built a voice-driven multi-agent control system as part of the Kaggle competition *Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)*. Enabled natural language voice commands to orchestrate agents, trigger workflows, and manage execution in real time.",
-      fullDescription: "Voice Control Tower is a real-time, voice-driven multi-agent orchestration system developed as part of the Kaggle competition **Google DeepMind – Vibe Coding with Gemini 3 Pro in AI Studio**. The system allows users to issue spoken commands that are transcribed, interpreted, and routed to specialized AI agents responsible for planning, execution, monitoring, and feedback. The architecture emphasizes low-latency interaction, robust agent coordination, and voice-first human–AI interaction, showcasing applied agentic system design using Gemini 3 Pro.",
+      description: "Built a voice-driven multi-agent control system as part of the Kaggle competition *Google DeepMind - Vibe Coding with Gemini 3 Pro (AI Studio)*. Enabled natural language voice commands to orchestrate agents, trigger workflows, and manage execution in real time.",
+      fullDescription: "Voice Control Tower is a real-time, voice-driven multi-agent orchestration system developed as part of the Kaggle competition **Google DeepMind - Vibe Coding with Gemini 3 Pro in AI Studio**. The system allows users to issue spoken commands that are transcribed, interpreted, and routed to specialized AI agents responsible for planning, execution, monitoring, and feedback. The architecture emphasizes low-latency interaction, robust agent coordination, and voice-first human-AI interaction, showcasing applied agentic system design using Gemini 3 Pro.",
       tags: [
         "Voice AI",
         "Multi-Agent Systems",
@@ -181,7 +169,7 @@ const portfolioData = {
         "Multi-agent architecture for task planning, execution, and monitoring",
         "Central control agent for intelligent routing and orchestration",
         "Real-time feedback loop between agents and user",
-        "Built for Kaggle: Google DeepMind – Vibe Coding with Gemini 3 Pro (AI Studio)"
+        "Built for Kaggle: Google DeepMind - Vibe Coding with Gemini 3 Pro (AI Studio)"
       ],
       githubLink: "https://github.com/satvika-eda/voice-control-tower",
       writeupLink: "https://www.kaggle.com/competitions/gemini-3/writeups/voice-control-tower"
